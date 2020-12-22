@@ -82,10 +82,11 @@ function nextword () {
 }
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
     SNT = ""
-    for (let index = 0; index < 4; index++) {
+    for (let index = 0; index < randint(2, 5); index++) {
         nextword()
         SNT = "" + SNT + " " + NewWord
     }
+    SNT = "" + SNT + Punct.substr(randint(0, Punct.length - 1), 1)
     basic.showString(SNT)
 })
 function erule () {
@@ -107,6 +108,7 @@ let engc = ""
 let engv = ""
 let romr: string[] = []
 let romc = ""
+let Punct = ""
 let romv = ""
 let mandor: string[] = []
 let mandoc = ""
@@ -139,6 +141,7 @@ mandov = "ouaaoaaaaeaeeeauiueaaeaeeaeoaeeaoaeooeaeaaeaeeeaeueeaieaaaoeeieiioaiai
 mandoc = "slstryshlntryshlntddthnhntcrcrtryshshtryshlnsh'''''''rslrl't'tdtd'tsh'hnshhn'tsh'cshk'tlsr'chkrvrrsrmsrmrdsnrrnrnrmjycrmjyc"
 mandor = ["CVVC", "CVCVC", "VCCVC", "CVVVVCV", "CVCCV"]
 romv = "'eiueeeiia'''"
+Punct = "!!?.."
 romc = "skfhvhlnvhdhmnhl'rh"
 romr = ["CVCCV", "CVVCV", "CVVVCCC", "CVVCV", "CVVCCV"]
 engv = "aeiouy"
