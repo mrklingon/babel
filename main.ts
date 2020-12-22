@@ -58,11 +58,6 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 input.onGesture(Gesture.Shake, function () {
-    SNT = ""
-    for (let index = 0; index < 4; index++) {
-        nextword()
-        SNT = "" + SNT + " " + NewWord
-    }
     basic.showString(SNT)
 })
 function nextword () {
@@ -85,12 +80,17 @@ function nextword () {
         basic.showString("" + (Make_Word(vrule(), vulc, vulv)))
     }
 }
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    SNT = ""
+    for (let index = 0; index < 4; index++) {
+        nextword()
+        SNT = "" + SNT + " " + NewWord
+    }
+    basic.showString(SNT)
+})
 function erule () {
     return engr[randint(0, engr.length - 1)]
 }
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-	
-})
 function mrule () {
     return mandor[randint(0, mandor.length - 1)]
 }
