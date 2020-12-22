@@ -57,12 +57,44 @@ input.onButtonPressed(Button.B, function () {
         basic.showString("" + (Make_Word(vrule(), vulc, vulv)))
     }
 })
+input.onGesture(Gesture.Shake, function () {
+    SNT = ""
+    for (let index = 0; index < 4; index++) {
+        nextword()
+        SNT = "" + SNT + " " + NewWord
+    }
+    basic.showString(SNT)
+})
+function nextword () {
+    if (0 == lang) {
+        basic.showString("" + (Make_Word(Krule(), Kconst, Kvowel)))
+    }
+    if (1 == lang) {
+        basic.showString("" + (Make_Word(erule(), engc, engv)))
+    }
+    if (2 == lang) {
+        basic.showString("" + (Make_Word(rrule(), romc, romv)))
+    }
+    if (4 == lang) {
+        basic.showString("" + (Make_Word(wrule(), wookc, wookv)))
+    }
+    if (5 == lang) {
+        basic.showString("" + (Make_Word(mrule(), mandoc, mandov)))
+    }
+    if (3 == lang) {
+        basic.showString("" + (Make_Word(vrule(), vulc, vulv)))
+    }
+}
 function erule () {
     return engr[randint(0, engr.length - 1)]
 }
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+	
+})
 function mrule () {
     return mandor[randint(0, mandor.length - 1)]
 }
+let SNT = ""
 let NewWord = ""
 let wookr: string[] = []
 let wookc = ""
