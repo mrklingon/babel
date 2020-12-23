@@ -35,6 +35,9 @@ input.onButtonPressed(Button.A, function () {
 function Krule () {
     return Krules[randint(0, Krules.length - 1)]
 }
+input.onPinPressed(TouchPin.P2, function () {
+    music.setBuiltInSpeakerEnabled(true)
+})
 function vrule () {
     return vulr[randint(0, vulr.length - 1)]
 }
@@ -67,6 +70,9 @@ input.onButtonPressed(Button.B, function () {
     if (6 == lang) {
         basic.showString("" + (Make_Word(Xrule(), Xcon, Xvow)))
     }
+})
+input.onPinPressed(TouchPin.P1, function () {
+    music.setBuiltInSpeakerEnabled(false)
 })
 function Thinking () {
     for (let index = 0; index < 4; index++) {
