@@ -35,9 +35,6 @@ input.onButtonPressed(Button.A, function () {
 function Krule () {
     return Krules[randint(0, Krules.length - 1)]
 }
-input.onPinPressed(TouchPin.P2, function () {
-    music.setBuiltInSpeakerEnabled(true)
-})
 function vrule () {
     return vulr[randint(0, vulr.length - 1)]
 }
@@ -72,7 +69,19 @@ input.onButtonPressed(Button.B, function () {
     }
 })
 input.onPinPressed(TouchPin.P1, function () {
-    music.setBuiltInSpeakerEnabled(false)
+    if (SPKR == 1) {
+        basic.showIcon(IconNames.No)
+        music.playTone(131, music.beat(BeatFraction.Whole))
+        music.setBuiltInSpeakerEnabled(false)
+        SPKR = 0
+    } else {
+        basic.showIcon(IconNames.Yes)
+        music.setBuiltInSpeakerEnabled(true)
+        SPKR = 1
+        music.playTone(262, music.beat(BeatFraction.Whole))
+        music.playTone(247, music.beat(BeatFraction.Whole))
+        music.playTone(220, music.beat(BeatFraction.Whole))
+    }
 })
 function Thinking () {
     for (let index = 0; index < 4; index++) {
@@ -193,6 +202,7 @@ let lang = 0
 let Xrules: string[] = []
 let Xvow = ""
 let Xcon = ""
+let SPKR = 0
 let langs: string[] = []
 images.createBigImage(`
     # . # . . . . # . .
@@ -209,6 +219,7 @@ images.createBigImage(`
     . . . . # . . . . .
     `).scrollImage(1, 200)
 langs = ["K", "E", "R", "V", "W", "M", "X"]
+SPKR = 1
 Xcon = ""
 Xvow = ""
 Xrules = [" "]
